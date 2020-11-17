@@ -1,0 +1,2 @@
+tokenizers==0.9.4
+git+https://bitbucket.org/eunjeon/mecab-python-0.996.git#egg=mecab-python
