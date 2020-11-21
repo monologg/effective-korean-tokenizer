@@ -19,9 +19,10 @@ parser.add_argument(
     type=str,
     help="Path to the output directory, where the files will be saved",
 )
-parser.add_argument(
-    "--name", default="bert-wordpiece", type=str, help="The name of the output vocab files"
-)
+parser.add_argument("--name", default="bert-wordpiece", type=str, help="The name of the output vocab files")
+parser.add_argument("--vocab_size", default=31000, type=int, help="Vocab size")
+parser.add_argument("--char", default=4000, type=int, help="Number of character in vocab")
+
 args = parser.parse_args()
 
 files = glob.glob(args.files)
@@ -41,11 +42,11 @@ tokenizer = BertWordPieceTokenizer(
 # And then train
 tokenizer.train(
     files,
-    vocab_size=10000,
+    vocab_size=args.vocab_size,
     min_frequency=2,
     show_progress=True,
     special_tokens=["[PAD]", "[UNK]", "[CLS]", "[SEP]", "[MASK]"],
-    limit_alphabet=2000,
+    limit_alphabet=args.char,
     wordpieces_prefix="##",
 )
 
