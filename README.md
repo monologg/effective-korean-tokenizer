@@ -4,6 +4,7 @@ Effective method for building Korean Tokenizer
 
 
 ## Requirements
+`NOTE`: Before the installation, check if [mecab-ko-dic](https://bitbucket.org/eunjeon/mecab-ko-dic/src/master/) is already configured.
 
 ```bash
 $ pip3 install -r requirements.txt
